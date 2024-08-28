@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Startup Landing Page</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        header {
+            background: #007bff;
+            color: #fff;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2rem;
+            text-align: left;
+            flex: 1;
+            font-weight: 700;
+        }
+
+        nav {
+            flex: 2;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            align-items: center;
+        }
+
+        nav ul li {
+            display: inline-block;
+            margin: 0 20px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s, transform 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #ffdd57;
+            transform: scale(1.1);
+        }
+
+        .auth-buttons {
+            display: flex;
+            gap: 30px; /* Gap between login and register buttons */
+            margin-left: 40px; /* Space between list items and auth buttons */
+        }
+
+        .auth-buttons a {
+            color: #fff;
+            text-decoration: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: background 0.3s, transform 0.3s;
+        }
+
+        .auth-buttons .login {
+            background-color: transparent;
+            border: 1px solid #fff;
+        }
+
+        .auth-buttons .register {
+            background-color: #ffdd57;
+            color: #333;
+        }
+
+        .auth-buttons a:hover {
+            transform: scale(1.05);
+        }
+
+        .auth-buttons .login:hover {
+            background-color: #fff;
+            color: #007bff;
+        }
+
+        .auth-buttons .register:hover {
+            background-color: #333;
+            color: #ffdd57;
+        }
+
+        .hero {
+            background: url('hero-image.jpg') no-repeat center center/cover;
+            color: #fff;
+            height: 80vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.4);
+        }
+
+        .hero h2 {
+            font-size: 3rem;
+            margin: 0;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin: 15px 0 0;
+            font-weight: 300;
+        }
+
+        .container {
+            padding: 2rem;
+        }
+
+        .about {
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .about h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .about p {
+            margin-bottom: 2rem;
+            font-weight: 300;
+            color: #666;
+        }
+
+        .about-images {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .about-images .team-member {
+            text-align: center;
+        }
+
+        .about-images img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 50%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .about-images img:hover {
+            transform: scale(1.1);
+        }
+
+        .about-images .image-caption {
+            margin-top: 0.5rem;
+            font-size: 1rem;
+            color: #333;
+            font-weight: 600;
+        }
+
+        .features,
+        .testimonials {
+            margin: 2rem 0;
+            padding: 0 1rem;
+            background: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .features h2,
+        .testimonials h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .features ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .features ul li {
+            background: #fff;
+            margin: 10px 0;
+            padding: 15px;
+            border-left: 5px solid #007bff;
+            border-radius: 4px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            font-weight: 400;
+            transition: transform 0.3s, background 0.3s;
+        }
+
+        .features ul li:hover {
+            background: #007bff;
+            color: #fff;
+            transform: translateX(10px);
+        }
+
+        .testimonials p {
+            font-style: italic;
+            margin: 0 0 10px;
+            padding: 0 1rem;
+            color: #555;
+        }
+
+        .cta {
+            background: #007bff;
+            color: #fff;
+            padding: 2rem;
+            text-align: center;
+            border-radius: 8px;
+            margin-top: 2rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .cta h2 {
+            margin: 0 0 1rem;
+            font-size: 2rem;
+            font-weight: 600;
+        }
+
+        .cta form input[type="email"] {
+            padding: 10px;
+            font-size: 1rem;
+            margin: 0 10px 0 0;
+            border: none;
+            border-radius: 5px;
+            width: 300px;
+        }
+
+        .cta form input[type="submit"] {
+            background: #ffdd57;
+            color: #333;
+            padding: 10px 20px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background 0.3s, transform 0.3s;
+        }
+
+        .cta form input[type="submit"]:hover {
+            background: #333;
+            color: #ffdd57;
+            transform: scale(1.05);
+        }
+
+        footer {
+            background: #333;
+            color: #fff;
+            padding: 1rem 0;
+            text-align: center;
+            font-weight: 300;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        .photo-swapper {
+            position: relative;
+            max-width: 100%;
+            height: 70vh;
+            overflow: hidden;
+        }
+
+        .slider {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .slide {
+            min-width: 100%;
+            box-sizing: border-box;
+        }
+
+        button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            z-index: 10;
+            border-radius: 50%;
+            font-size: 1.5rem;
+        }
+
+        .prev {
+            left: 10px;
+        }
+
+        .next {
+            right: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>E-LIBRARY</h1>
+        <nav>
+            <ul>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="auth-buttons">
+                <a href="#" class="login">Log In</a>
+                <a href="#" class="register">Register</a>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div>
+            <h2>Welcome to E-LIBRARY</h2>
+            <p>In the pages of a book, time stands still</p>
+        </div>
+    </section>
+
+    <div class="container">
+        <section id="about" class="about">
+            <h2>About Us</h2>
+            <p>We are a forward-thinking startup dedicated to bringing the most innovative solutions to market. Our team
+                of experts is passionate about technology and driven by a commitment to excellence.</p>
+            
+            <div class="about-images">
+                <div class="team-member">
+                    <img src="photo1.png" alt="Team Member 1">
+                    <div class="image-caption">Binty Mitra - Lead Developer</div>
+                </div>
+                <div class="team-member">
+                    <img src="photo2.jpg" alt="Team Member 2">
+                    <div class="image-caption">Dipto Chaccroboti - UI/UX Designer</div>
+                </div>
+                <div class="team-member">
+                    <img src="photo3.png" alt="Team Member 3">
+                    <div class="image-caption">Anupam Chakma - Project Manager</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="features" class="features">
+            <h2>Features</h2>
+            <ul>
+                <li>Feature One - Cutting-edge technology to solve real-world problems.</li>
+                <li>Feature Two - User-friendly interfaces designed for simplicity and ease of use.</li>
+                <li>Feature Three - Scalable solutions that grow with your business.</li>
+            </ul>
+        </section>
+
+        <section id="testimonials" class="testimonials">
+            <h2>Testimonials</h2>
+            <p>"This product has changed the way we do business. Absolutely fantastic!" - Customer A</p>
+            <p>"The team at Startup Name is incredible. Their support and service are top-notch." - Customer B</p>
+        </section>
+    </div>
+
+    <section class="photo-swapper">
+        <div class="slider">
+            <img src="image1.jpg" alt="Image 1" class="slide" />
+            <img src="image2.jpg" alt="Image 2" class="slide" />
+            <img src="image3.jpg" alt="Image 3" class="slide" />
+        </div>
+        <button class="prev" onclick="prevSlide()">&#10094;</button>
+        <button class="next" onclick="nextSlide()">&#10095;</button>
+    </section>
+
+    <section id="contact" class="cta">
+        <h2>Stay Updated</h2>
+        <form>
+            <input type="email" placeholder="Enter your email" required>
+            <input type="submit" value="Subscribe">
+        </form>
+    </section>
+    <!-- Include JavaScript file -->
+    <script src="script.js"></script>
+    <footer>
+        <p>&copy; 2024 E-LIBRARY. All rights reserved.</p>
+    </footer>
+
+   
+</body>
+
+</html>
